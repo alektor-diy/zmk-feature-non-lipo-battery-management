@@ -40,7 +40,7 @@ static void adv_timeout_handler(struct k_work *work) {
             LOG_WRN("Advertising timeout reached (%lldms), entering sleep", elapsed);
             
             // Wait for logs to flush
-            k_sleep(K_MSEC(100));
+            // k_sleep(K_MSEC(100));
 
             // Power off the system
             // zmk_pm_suspend_devices();
@@ -125,11 +125,11 @@ static void check_voltage_and_shutdown(uint16_t millivolts) {
                     millivolts, CONFIG_ZMK_NON_LIPO_LOW_MV);
 
             // Wait for logs to flush
-            k_sleep(K_MSEC(100));
+            // k_sleep(K_MSEC(100));
 
             // Power off system
-            zmk_pm_suspend_devices();
-            sys_poweroff();
+            // zmk_pm_suspend_devices();
+            // sys_poweroff();
         } else {
             LOG_WRN("Battery voltage (%dmv) below critical threshold (%dmv) but USB power detected, staying on",
                     millivolts, CONFIG_ZMK_NON_LIPO_LOW_MV);
